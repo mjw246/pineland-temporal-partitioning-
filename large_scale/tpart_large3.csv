@@ -1,0 +1,15 @@
+richness,species,overlap
+6,similar,0.256
+13,similar,0.292
+16,similar,0.176
+20,similar,0.216
+21,similar,0.214
+24,similar,0.1
+31,similar,0.275
+6,dissimilar,0.567
+13,dissimilar,0.771
+16,dissimilar,0.474
+20,dissimilar,0.342
+21,dissimilar,0.304
+24,dissimilar,0.508
+31,dissimilar,0.654
