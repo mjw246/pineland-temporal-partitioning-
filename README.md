@@ -136,7 +136,141 @@ Site-level summary data used in Table 1 and statistical analyses. Environmental 
 
 **Note:** Vegetation and habitat variables (`nnd` through `bg`) were measured at multiple points within each site and averaged. Climate variables (`temp_month`, `hum_month`) were obtained from [data source].
 
+## R Code (`R_code/`)
 
+All analyses were conducted in R version [X.X.X]. Scripts should be run in the order listed below.
+
+### `lat_richness.R`
+Analyzes species richness variation across the latitudinal gradient.
+
+**Purpose:**
+- Regression analysis of species richness vs. latitude
+- Correlation with environmental variables
+- Generates results for Table 1
+
+**Required data:** 
+- `Data/species_richness/richness_lat.csv`
+- `Data/species_richness/point_count_data.csv`
+
+**Key outputs:**
+- Species richness regression statistics
+- Environmental correlations
+- Table 1 summary statistics
+
+**Required packages:**
+```r
+library(lme4)      # Mixed-effects models
+library(ggplot2)   # Plotting
+library(dplyr)     # Data manipulation
+```
+
+### `masco_song.R`
+Calculates temporal overlap at the 1-minute scale using the SONG package (Masco et al. 2016).
+
+**Purpose:**
+- Calculates SONG p-metrics for species pairs
+- Quantifies 1-minute scale temporal overlap/avoidance
+- Demonstrates SONG methodology with example data
+
+**Required data:**
+- `Data/sample_SONG/simple_song.csv` (example data)
+- Raw song bout timing data (format as in example file)
+
+**Key outputs:**
+- SONG p-metric values for each species pair
+- Results populate `Data/small_scale/` files
+
+**Required packages:**
+```r
+library(SONG)      # Temporal overlap analysis (Masco et al. 2016)
+```
+
+**Reference:**
+Masco, C., Allesina, S., Mennill, D.J., and Pruett-Jones, S. 2016. The Song Overlap Null model Generator (SONG): a new tool for distinguishing between random and non-random song overlap. *Bioacoustics* 25(1):29-40.
+
+### `pine_temp_part.R`
+Main analysis script for temporal partitioning patterns across the species richness gradient.
+
+**Purpose:**
+- Statistical analyses of temporal overlap vs. species richness
+- Mixed-effects models for both temporal scales (1-min and 3-hr)
+- Model averaging and conditional averages
+- Generates all manuscript figures (Figures 2, 3, 4)
+
+**Required data:**
+- `Data/large_scale/tpart_large1.csv`
+- `Data/large_scale/tpart_large2.csv`
+- `Data/large_scale/tpart_large3.csv`
+- `Data/small_scale/tpart_small.csv`
+- `Data/small_scale/tpart_small2.csv`
+- `Data/species_richness/richness_lat.csv`
+
+**Key outputs:**
+- Mixed-effects model results
+- Model averaging statistics
+- Figure 2: Example time series showing song peaks and valleys
+- Figure 3: Mean overlap and avoidance by species pair
+- Figure 4: Overlap vs. species richness by acoustic similarity
+
+**Required packages:**
+```r
+library(lme4)      # Mixed-effects models
+library(MuMIn)     # Model averaging
+library(ggplot2)   # Plotting
+library(dplyr)     # Data manipulation
+library(tidyr)     # Data reshaping
+```
+
+## Running the Analyses
+
+To reproduce all analyses and figures:
+```r
+# Set working directory to repository root
+setwd("path/to/pineland-temporal-partitioning")
+
+# Run scripts in order
+source("R_code/lat_richness.R")
+source("R_code/masco_song.R")
+source("R_code/pine_temp_part.R")
+```
+
+**Note:** The `masco_song.R` script demonstrates the SONG methodology but does not need to be re-run to reproduce manuscript results, as SONG p-metrics are already calculated and provided in `Data/small_scale/`.
+
+## Software Requirements
+
+**R version:** 4.x.x or higher recommended
+
+**Required R packages:**
+```r
+install.packages(c("lme4", "MuMIn", "ggplot2", "dplyr", "tidyr", "SONG"))
+```
+
+**Installing SONG package:**
+The SONG package may need to be installed from archive or GitHub:
+```r
+# If not available on CRAN, install from source
+# Visit: https://github.com/[repository] or contact authors
+```
+
+## Session Info
+
+For reproducibility, we provide our R session information:
+```r
+R version 4.x.x (202X-XX-XX)
+Platform: [your platform]
+Running under: [your OS]
+
+attached base packages:
+[list main packages with versions]
+```
+
+## Computational Time
+
+- `lat_richness.R`: ~1 minute
+- `masco_song.R`: ~2 minutes (for example data)
+- `pine_temp_part.R`: ~5 minutes (includes model averaging)
+
+Total runtime: < 10 minutes on standard laptop
 
 
 
