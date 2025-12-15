@@ -134,11 +134,11 @@ Site-level summary data used in Table 1 and statistical analyses. Environmental 
 - `temp_month`: Mean temperature during recording month (°C)
 - `hum_month`: Mean humidity during recording month (%)
 
-**Note:** Vegetation and habitat variables (`nnd` through `bg`) were measured at multiple points within each site and averaged. Climate variables (`temp_month`, `hum_month`) were obtained from [data source].
+**Note:** Vegetation and habitat variables (`nnd` through `bg`) were measured at multiple points within each site and averaged. Climate variables (`temp_month`, `hum_month`) were obtained from [https://prism.oregonstate.edu/explorer/].
 
 ## R Code (`R_code/`)
 
-All analyses were conducted in R version [X.X.X]. Scripts should be run in the order listed below.
+All analyses were conducted in R version [3.6.2]. Scripts should be run in the order listed below.
 
 ### `lat_richness.R`
 Analyzes species richness variation across the latitudinal gradient.
@@ -237,7 +237,7 @@ source("R_code/pine_temp_part.R")
 
 ## Software Requirements
 
-**R version:** 4.x.x or higher recommended
+**R version:** 3.6.1 or higher recommended
 
 **Required R packages:**
 ```r
@@ -247,20 +247,18 @@ install.packages(c("lme4", "MuMIn", "ggplot2", "dplyr", "tidyr", "SONG"))
 **Installing SONG package:**
 The SONG package may need to be installed from archive or GitHub:
 ```r
-# If not available on CRAN, install from source
-# Visit: https://github.com/[repository] or contact authors
+# Visit: https://github.com/ChristinaMasco/song
 ```
 
 ## Session Info
 
 For reproducibility, we provide our R session information:
 ```r
-R version 4.x.x (202X-XX-XX)
-Platform: [your platform]
-Running under: [your OS]
+R version 3.6.2 (2019-12-12)
+Platform: x86_64-apple-darwin15.6.0 (64-bit)
+Running under: OS X Sequoia 15.6.1
 
-attached base packages:
-[list main packages with versions]
+
 ```
 
 ## Computational Time
