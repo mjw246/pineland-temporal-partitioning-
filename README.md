@@ -279,10 +279,7 @@ Total runtime: < 10 minutes on standard laptop
 - **PIWA** = Pine Warbler (*Setophaga pinus*)
 - **MODO** = Mourning Dove (*Zenaida macroura*)
 
-## Figures
 
-- **Figure 3**: Uses `tpart_large2.csv` - Mean overlap and avoidance for each species pair
-- **Figure 4**: Uses `tpart_large4.csv` - Relationship between overlap and species richness by acoustic similarity
 
 
 
