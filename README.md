@@ -85,11 +85,60 @@ Raw SONG p-metric values for all ARU-day replicates (each species paired with NO
 
 ### Sample Audio Data (`Data/sample_SONG/`)
 
-[Describe what's in here - example spectrograms? Sample vocalizations?]
+This folder contains example data demonstrating the input format for the SONG package temporal overlap analysis.
 
-### Species Richness (`Data/species_richness/`)
+#### `simple_song.csv`
+Example song bout timing data from a single 1-minute recording period, showing Northern Cardinal and White-eyed Vireo vocalizations. This file illustrates the raw data structure used for calculating SONG p-metrics.
 
-[Describe your point count/richness data files]
+**Columns:**
+- `start`: Start time of song bout (seconds within the 1-minute recording)
+- `end`: End time of song bout (seconds within the 1-minute recording)
+- `ID`: Species identifier (four-letter code: NOCA or WEVI)
+
+**Example usage:**
+This file format is used as input to the SONG package to calculate temporal overlap metrics. Each row represents a single continuous vocalization bout by one individual/species.
+
+### Species Richness and Site Data (`Data/species_richness/`)
+
+These files contain point count data and site-level environmental variables used to characterize avian communities and habitat structure across the study gradient.
+
+#### `point_count_data.csv`
+Raw point count observations from all sites. Each row represents detection of one or more individuals of a species during a single point count.
+
+**Columns:**
+- `day`: Date of point count (format: MM/DD/YYYY)
+- `time`: Start time of point count (24-hour military time)
+- `site`: Study site identifier
+- `ARU`: ARU number within site (identifies point count location)
+- `species`: Four-letter species code
+- `abundance`: Number of individuals detected (visual + auditory detections)
+
+**Note:** Point counts were 10 minutes in duration, conducted during peak breeding bird activity (1 hour before to 2 hours after dawn). Species richness was calculated as the total number of species detected per site across all point counts, excluding waterbirds and flyover species.
+
+#### `richness_lat.csv`
+Site-level summary data used in Table 1 and statistical analyses. Environmental variables are averaged across all ARUs within each site.
+
+**Columns:**
+- `site`: Study site identifier
+- `richness`: Total species detected at site (from point counts)
+- `lat`: Latitude (decimal degrees)
+- `nnd`: Nearest neighbor distance - mean distance to nearest conspecific tree (m)
+- `dbh`: Mean diameter at breast height of trees ≥5 cm DBH (cm)
+- `ch`: Mean canopy height (m)
+- `uh`: Mean understory height (m)
+- `uss`: Understory stem density - number of stems per unit area
+- `uso`: Understory visual obstruction - percent vegetation cover blocking horizontal visibility
+- `bg`: Percent bare ground cover
+- `jd`: Mean Julian date of ARU recordings (day of year)
+- `area`: Area of contiguous pineland habitat within of site (ha)
+- `temp_month`: Mean temperature during recording month (°C)
+- `hum_month`: Mean humidity during recording month (%)
+
+**Note:** Vegetation and habitat variables (`nnd` through `bg`) were measured at multiple points within each site and averaged. Climate variables (`temp_month`, `hum_month`) were obtained from [data source].
+
+
+
+
 
 ## Species Codes
 
