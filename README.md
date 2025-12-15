@@ -195,7 +195,7 @@ Main analysis script for temporal partitioning patterns across the species richn
 - Statistical analyses of temporal overlap vs. species richness
 - Mixed-effects models for both temporal scales (1-min and 3-hr)
 - Model averaging and conditional averages
-- Generates all manuscript figures (Figures 2, 3, 4)
+- Generates manuscript figures 3 and 4
 
 **Required data:**
 - `Data/large_scale/tpart_large1.csv`
@@ -208,7 +208,6 @@ Main analysis script for temporal partitioning patterns across the species richn
 **Key outputs:**
 - Mixed-effects model results
 - Model averaging statistics
-- Figure 2: Example time series showing song peaks and valleys
 - Figure 3: Mean overlap and avoidance by species pair
 - Figure 4: Overlap vs. species richness by acoustic similarity
 
